@@ -1,0 +1,14 @@
+LIBRARY IEEE;
+USE IEEE.std_logic_1164.all;
+USE IEEE.std_logic_arith.all;
+
+ENTITY HALFADD IS
+PORT ( A, B : IN BIT;
+SUM, CARRY : OUT BIT);
+END HALFADD;
+
+ARCHITECTURE behave OF HALFADD IS
+BEGIN
+SUM <= A XOR B;
+CARRY <= A AND B;
+END behave;
