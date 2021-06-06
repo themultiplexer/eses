@@ -1,0 +1,64 @@
+$date
+	Sun Jun  6 16:13:19 2021
+$end
+$version
+	QuestaSim Version 10.6c_1
+$end
+$timescale
+	1ns
+$end
+
+$scope module fulladd $end
+$var wire 1 ! A $end
+$var wire 1 " B $end
+$var wire 1 # CIN $end
+$var wire 1 $ SUM $end
+$var wire 1 % CARRY $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+0"
+0#
+0$
+0%
+$end
+#100
+1"
+#102
+1$
+#200
+1!
+0"
+#300
+1"
+#302
+0$
+1%
+#400
+0!
+0"
+1#
+#402
+1$
+0%
+#500
+1"
+#502
+0$
+1%
+#600
+1!
+0"
+#700
+1"
+#702
+1$
+#800
+0!
+0"
+0#
+#802
+0$
+0%

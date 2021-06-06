@@ -24,7 +24,7 @@ ARCHITECTURE testdriver OF testadd IS
 
 BEGIN
   DuT : NBITADDER PORT MAP(A,B,CIN, SUM, COUT);
-  clk <= NOT clk AFTER 100 ns;
+  clk <= NOT clk AFTER 50 ns;
 
   stimulus: PROCESS
     BEGIN
@@ -82,9 +82,9 @@ BEGIN
     B <= "00000000000000000000000000000000";
     CIN <= '0';
     WAIT UNTIL clk'EVENT AND clk= '1';
-    A <= "00000000000000000000000000000001"; -- 1 + 1 + CIN = 3
-    B <= "00000000000000000000000000000001"; -- Carry Eingang testen
-    CIN <= '1';                              -- Wenn die vorherigen Test korrekt sind reicht eine einfache Addition
+    A <= "11111111111111111111111111111111";
+    B <= "11111111111111111111111111111111"; 
+    CIN <= '1';
     WAIT UNTIL clk'EVENT AND clk= '1';
   END PROCESS;
 
