@@ -35,14 +35,14 @@ BEGIN
     -- Send Operand 1
     WAIT UNTIL clk'EVENT AND clk= '1';
     op1_ready <= '1';
-    data <=  std_logic_vector("00000000000000000000000000111110");
+    data <= std_logic_vector(to_signed(500,32));
     WAIT UNTIL clk'EVENT AND clk= '0';
     op1_ready <= '0';
 
     -- Send Operand 2
     WAIT UNTIL clk'EVENT AND clk= '1';
     op2_ready <= '1';
-    data <= "00000000000000000000000111111110";
+    data <= std_logic_vector(to_signed(500,32));
     WAIT UNTIL clk'EVENT AND clk= '0';
     op2_ready <= '0';
 
@@ -55,6 +55,166 @@ BEGIN
 
     -- Wait for res_ready
     WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(1000,32));
+
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    reset <= '1';
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    reset <= '0';
+
+    -- Send Operand 1
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op1_ready <= '1';
+    data <= std_logic_vector(to_unsigned(50000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op1_ready <= '0';
+
+    -- Send Operand 2
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op2_ready <= '1';
+    data <= std_logic_vector(to_signed(50000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op2_ready <= '0';
+
+    -- Send Operand 3
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    opID_ready <= '1';
+    opID <= "00";
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    opID_ready <= '0';
+
+    -- Wait for res_ready
+    WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(10000000,32));
+
+
+
+
+
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    reset <= '1';
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    reset <= '0';
+
+    -- Send Operand 1
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op1_ready <= '1';
+    data <= std_logic_vector(to_signed(500,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op1_ready <= '0';
+
+    -- Send Operand 2
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op2_ready <= '1';
+    data <= std_logic_vector(to_signed(500,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op2_ready <= '0';
+
+    -- Send Operand 3
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    opID_ready <= '1';
+    opID <= "01";
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    opID_ready <= '0';
+
+    -- Wait for res_ready
+    WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(0,32));
+
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    reset <= '1';
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    reset <= '0';
+
+    -- Send Operand 1
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op1_ready <= '1';
+    data <= std_logic_vector(to_signed(10000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op1_ready <= '0';
+
+    -- Send Operand 2
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op2_ready <= '1';
+    data <= std_logic_vector(to_signed(5000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op2_ready <= '0';
+
+    -- Send Operand 3
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    opID_ready <= '1';
+    opID <= "10";
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    opID_ready <= '0';
+
+    -- Wait for res_ready
+    WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(5000,32));
+
+
+
+
+
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    reset <= '1';
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    reset <= '0';
+
+    -- Send Operand 1
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op1_ready <= '1';
+    data <= std_logic_vector(to_signed(500,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op1_ready <= '0';
+
+    -- Send Operand 2
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op2_ready <= '1';
+    data <= std_logic_vector(to_signed(500,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op2_ready <= '0';
+
+    -- Send Operand 3
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    opID_ready <= '1';
+    opID <= "11";
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    opID_ready <= '0';
+
+    -- Wait for res_ready
+    WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(250000,32));
+
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    reset <= '1';
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    reset <= '0';
+
+    -- Send Operand 1
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op1_ready <= '1';
+    data <= std_logic_vector(to_signed(20000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op1_ready <= '0';
+
+    -- Send Operand 2
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    op2_ready <= '1';
+    data <= std_logic_vector(to_signed(20000,32));
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    op2_ready <= '0';
+
+    -- Send Operand 3
+    WAIT UNTIL clk'EVENT AND clk= '1';
+    opID_ready <= '1';
+    opID <= "11";
+    WAIT UNTIL clk'EVENT AND clk= '0';
+    opID_ready <= '0';
+
+    -- Wait for res_ready
+    WAIT UNTIL res_ready='1';
+    assert data = std_logic_vector(to_signed(400000000,32));
+
   END PROCESS;
 
 END testdriver;

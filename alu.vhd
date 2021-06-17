@@ -15,10 +15,10 @@ end ALU;
 
 
 ARCHITECTURE behavioral_seq OF ALU IS
-BEGIN PROCESS(clk, reset, op1_ready, op2_ready, opID_ready, opID)
+BEGIN PROCESS(clk, reset, op1_ready, op2_ready, opID_ready, opID, data)
 VARIABLE operation: BIT_VECTOR(1 downto 0);
-VARIABLE A,B: STD_LOGIC_VECTOR(31 downto 0);
-VARIABLE ZWISCHEN: STD_LOGIC_VECTOR(63 DOWNTO 0);
+VARIABLE A,B: SIGNED(31 downto 0) := "00000000000000000000000000000000";
+VARIABLE ZWISCHEN: SIGNED(63 DOWNTO 0);
 VARIABLE state: BIT_VECTOR(2 downto 0);
 BEGIN
 if (clk='1') then
@@ -35,21 +35,17 @@ if (clk='1') then
 		state(1) := '1';
 		report "opID ready";
 	elsif (op1_ready='1') then
-		A := data;
+		A := signed(data);
 		state(0) := '1';
 		report "op1 ready";
 	elsif (op2_ready='1') then
-		B := data;
+		B := signed(data);
 		state(2) := '1';
 		report "op2 ready";
 	elsif (state="111") then 
 		CASE operation is
 		when "00" =>
 			-- Addition
-			--ZWISCHEN := internal_data + data;
-			--data <= ZWISCHEN(31 DOWNTO 0);
-			--report to_hstring(A);
-			--report to_hstring(B);
 			data <= A + B;
 		when "01"|"10" =>
 			-- Subtraktion
@@ -57,7 +53,7 @@ if (clk='1') then
 		when "11" =>
 			-- Multiplikation
 			ZWISCHEN := A * B;
-			data <= ZWISCHEN(31 DOWNTO 0);
+			data <= std_logic_vector(ZWISCHEN(31 DOWNTO 0));
 		when others =>
 			-- F für Fehler anzeigen
 		END CASE;
